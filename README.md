@@ -1,4 +1,14 @@
-# ToDoList
+# Initializing
+
+- ng new ToDoList       (created Project)
+- cd ToDoList/
+- ng generate component page-list   (short: ng g c ...  generate first component)
+- 
+
+- npm instal (based on package.json)
+- npm ci (based on package-lock.json) ...for 
+
+# Initial README content
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 

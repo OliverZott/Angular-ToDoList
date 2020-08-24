@@ -1,5 +1,6 @@
 # Angular Tutorial 1
-https://www.youtube.com/watch?v=unWCXyBOy8E&t=287s
+https://www.youtube.com/watch?v=unWCXyBOy8E&t=287s    
+https://github.com/Johannes-Schiel/Angular-ToDoList-Tutorial
 
 ## Initializing
 **Initializing app**
@@ -22,8 +23,15 @@ https://www.youtube.com/watch?v=unWCXyBOy8E&t=287s
 - src/app/              ... code (components, services, ...)
 - src/app/app.module.ts ... important! 
 
+## HTML & Styling
+https://www.youtube.com/watch?v=mN1QgTvPXrI
 
-
+- sass guid-lines   
+    https://medium.com/@manivel45/configuring-angular-7-project-with-sass-bootstrap-and-angular-material-design-69b0f033dc04
+- $ dollar sign in css / sass   
+    https://stackoverflow.com/questions/45466499/what-does-the-in-css-mean/45466605
+- Fonts usage example      
+    https://fonts.google.com/specimen/Roboto+Condensed?standard-styles=
 # Initial README content
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.

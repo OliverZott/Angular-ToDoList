@@ -1,12 +1,28 @@
-# Initializing
+# Angular Tutorial 1
+https://www.youtube.com/watch?v=unWCXyBOy8E&t=287s
 
-- ng new ToDoList       (created Project)
-- cd ToDoList/
-- ng generate component page-list   (short: ng g c ...  generate first component)
-- 
+## Initializing
+**Initializing app**
+- ```ng new ToDoList```       (created Project)
+- ```cd ToDoList/```
+- ```ng generate component page-list```   (short: `ng g c` ...  generate first component)
+- ```ng g c _template/template-xxx```  (shared stuff like templates)
+- ```ng generate service _service/data``` (`ng g s` ...functions accessible for other components)
+- ```ng generate interface _interface/todo``` (`ng g i` ...interfaces)
+- ```ng serve --open```  (open application)
 
-- npm instal (based on package.json)
+**When pulling / cloning project:**
+- npm install (based on package.json)
 - npm ci (based on package-lock.json) ...for 
+
+## Structure
+- src/style.sass        ... style stuff
+- src/assets/           ... all external stuff (fonts, pictures, ...)
+- src/sass/             ... manually created (css style stuff)
+- src/app/              ... code (components, services, ...)
+- src/app/app.module.ts ... important! 
+
+
 
 # Initial README content
 
@@ -35,3 +51,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+¶

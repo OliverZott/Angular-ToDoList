@@ -26,12 +26,35 @@ https://github.com/Johannes-Schiel/Angular-ToDoList-Tutorial
 ## HTML & Styling
 https://www.youtube.com/watch?v=mN1QgTvPXrI
 
+####Take-aways:
+- Load components in other components `<app-componentName></app-componentName>` 
+- `.` `#` to address class in css / id 
+- HTML:    
+    - `class` ...for css / `id` ...unique! for js or testing
+    - `span` ... no semantic meaning; just to be formatted with css 
+    - `hover` ... hover effect with transition time in ms
+    - 
+- CSS:    
+    - `display: flex` and `justify-content` 
+    [Link](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout)    
+    - 
+    
+####Remarks:
+
 - sass guid-lines   
     https://medium.com/@manivel45/configuring-angular-7-project-with-sass-bootstrap-and-angular-material-design-69b0f033dc04
 - $ dollar sign in css / sass   
     https://stackoverflow.com/questions/45466499/what-does-the-in-css-mean/45466605
 - Fonts usage example      
     https://fonts.google.com/specimen/Roboto+Condensed?standard-styles=
+- pixel / em / rem    
+    https://die-netzialisten.de/em-und-rem-was-ist-der-unterschied/
+
+    
+
+    
+    
+    
 # Initial README content
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.

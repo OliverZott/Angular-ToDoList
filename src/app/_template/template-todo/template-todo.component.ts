@@ -14,7 +14,7 @@ export class TemplateTodoComponent implements OnInit {
     this.toDo$ = {
       id: 1,
       label: 'test-label',
-      status: true,
+      status: false,
       position: 1,
     };
   }
@@ -25,5 +25,14 @@ export class TemplateTodoComponent implements OnInit {
   public changeCheck(event?: any): void {
     this.toDo$.status = !this.toDo$.status;
     console.log(this.toDo$.status);
+  }
+
+  public changeLabel(event?: any): void {
+    console.log(this.toDo$.label);
+  }
+
+  public deleteToDo(event?: any): void {
+    console.log(this.toDo$.id);
+
   }
 }

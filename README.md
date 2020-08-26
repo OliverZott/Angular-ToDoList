@@ -50,11 +50,20 @@ https://www.youtube.com/watch?v=mN1QgTvPXrI
 - pixel / em / rem    
     https://die-netzialisten.de/em-und-rem-was-ist-der-unterschied/
 
-    
+## TS - Element manipulation
 
+**Examples:** 
+ - `*ngIf="toDoShow"` in *page-list.component*
+ - `[class.done]="toDo$.status"` ...**class binding** in *_template/template-todo.component*
+ - `*ngIf="toDo$.status"` in *_template/template-todo.component*
+ 
+ 
+ ####Remarks
+ - Angular is modular - everything happen on basis of components
+ 
     
-    
-    
+<br>    
+
 # Initial README content
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.

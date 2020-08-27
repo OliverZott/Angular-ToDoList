@@ -50,17 +50,32 @@ https://www.youtube.com/watch?v=mN1QgTvPXrI
 - pixel / em / rem    
     https://die-netzialisten.de/em-und-rem-was-ist-der-unterschied/
 
-## TS - Element manipulation
+## Element manipulation
 
-**Examples:** 
+**Structural Directives** 
  - `*ngIf="toDoShow"` in *page-list.component*
  - `[class.done]="toDo$.status"` ...**class binding** in *_template/template-todo.component*
  - `*ngIf="toDo$.status"` in *_template/template-todo.component*
- 
+ - 
  
  ####Remarks
  - Angular is modular - everything happen on basis of components
+ - 
  
+## Component interaction
+https://www.youtube.com/watch?v=nFjVYwCJdUU
+
+- **eventping**  will be needed
+- *Structural Directives*: `*ngFor`
+- *Binding* to child component: 
+
+### Input / Output
+
+### Emitter
+
+
+
+
     
 <br>    
 

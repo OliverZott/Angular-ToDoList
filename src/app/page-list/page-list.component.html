@@ -2,16 +2,11 @@
 <div class="list-view">
   <h4 (click)="toDoShow=!toDoShow">Open <span>( 2 )</span></h4>
   <div *ngIf="toDoShow" class="todo-elements">
-    <app-template-todo></app-template-todo>
-    <app-template-todo></app-template-todo>
-    <app-template-todo></app-template-todo>
-    <app-template-todo></app-template-todo>
-    <app-template-todo></app-template-todo>
+    <app-template-todo [toDo$]="toDo" *ngFor="let toDo of $todos"></app-template-todo>
   </div>
   <app-template-todo-form></app-template-todo-form>
   <h4 (click)="toDoDoneShow=!toDoDoneShow">Done <span>( 2 )</span></h4>
   <div *ngIf="toDoDoneShow" class="todo-elements">
-    <app-template-todo></app-template-todo>
     <app-template-todo></app-template-todo>
   </div>
 </div>

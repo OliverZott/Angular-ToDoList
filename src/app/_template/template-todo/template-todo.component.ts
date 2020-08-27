@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToDo } from '../../_interface/todo';
 
 @Component({
@@ -8,15 +8,14 @@ import { ToDo } from '../../_interface/todo';
 })
 export class TemplateTodoComponent implements OnInit {
 
-  public toDo$: ToDo;
+  /*
+  "Input" to direct changes to child component
+  "Output" to direct changes to parent component
+   */
+  @Input() toDo$: ToDo;   // assign variable, if component gets new object (no use in constructor anymore)
+  @Output() ping: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
-    this.toDo$ = {
-      id: 1,
-      label: 'test-label',
-      status: false,
-      position: 1,
-    };
   }
 
   ngOnInit(): void {
@@ -33,6 +32,6 @@ export class TemplateTodoComponent implements OnInit {
 
   public deleteToDo(event?: any): void {
     console.log(this.toDo$.id);
-
   }
+
 }

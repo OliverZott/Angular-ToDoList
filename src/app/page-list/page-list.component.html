@@ -1,12 +1,22 @@
 <app-template-header></app-template-header>   <!-- import header template -->
 <div class="list-view">
-  <h4 (click)="toDoShow=!toDoShow">Open <span>( 2 )</span></h4>
-  <div *ngIf="toDoShow" class="todo-elements">
-    <app-template-todo [toDo$]="toDo" *ngFor="let toDo of $todos"></app-template-todo>
-  </div>
-  <app-template-todo-form></app-template-todo-form>
-  <h4 (click)="toDoDoneShow=!toDoDoneShow">Done <span>( 2 )</span></h4>
-  <div *ngIf="toDoDoneShow" class="todo-elements">
-    <app-template-todo></app-template-todo>
-  </div>
+
+    <h4 (click)="toDoShow=!toDoShow">Open <span>( 2 )</span></h4>
+    <div *ngIf="toDoShow" class="todo-elements">
+        <app-template-todo (ping)="update($event)" [toDo$]="toDo" *ngFor="let toDo of $todos"></app-template-todo>
+        <!--
+        _todo bound to _toDo$ from _todo-template; parent sends data to child
+
+        the "event" variable also is the payload from ping.emit(eventObject);
+        child to parent
+        -->
+    </div>
+
+    <app-template-todo-form></app-template-todo-form>
+
+    <h4 (click)="toDoDoneShow=!toDoDoneShow">Done <span>( 2 )</span></h4>
+    <div *ngIf="toDoDoneShow" class="todo-elements">
+        <app-template-todo></app-template-todo>
+    </div>
+
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ToDo} from '../_interface/todo';
+import {EventPing} from '../_interface/eventping';
 
 @Component({
   selector: 'app-page-list',
@@ -19,7 +20,7 @@ export class PageListComponent implements OnInit {
         this.$todos = [
             {
                 id: 0,
-                label: 'test',
+                label: 'puff',
                 position: 1,
                 status: false,
             },
@@ -33,5 +34,11 @@ export class PageListComponent implements OnInit {
     }
 
     ngOnInit(): void {
+    }
+
+    public update(event: EventPing): void {
+        if ('check' === event.label) {
+            console.log(`%c"${event.label}-Event" was triggered.`, `color: green`);
+        }
     }
 }

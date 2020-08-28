@@ -1,6 +1,6 @@
 import {ToDo} from './todo';
 
-export interface Eventping {
+export interface EventPing {
     label: string;
     object: ToDo;
 }

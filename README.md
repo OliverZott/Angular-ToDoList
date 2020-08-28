@@ -2,6 +2,13 @@
 https://www.youtube.com/watch?v=unWCXyBOy8E&t=287s    
 https://github.com/Johannes-Schiel/Angular-ToDoList-Tutorial
 
+- `@input`  `@output`  
+  - https://angular.io/guide/inputs-outputs  
+- **Observables**  
+  - https://angular.io/guide/observables  
+- **Binding**  
+  - https://angular.io/guide/binding-syntax
+ 
 ## Initializing
 **Initializing app**
 - ```ng new ToDoList```       (created Project)

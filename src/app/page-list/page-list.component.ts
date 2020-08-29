@@ -16,29 +16,59 @@ export class PageListComponent implements OnInit {
 
     constructor() {
         this.toDoShow = true;
-        this.toDoDoneShow = false;
+        this.toDoDoneShow = true;
         this.$todos = [
             {
                 id: 0,
-                label: 'puff',
+                label: 'Task1',
                 position: 1,
                 status: false,
             },
             {
                 id: 1,
-                label: 'test2',
+                label: 'Task2',
                 position: 2,
                 status: false,
             }
         ];
+        this.$todosdone = [];
     }
 
     ngOnInit(): void {
     }
 
+    /*
+    After pushing  object to other array -> when / how / why is template rendered new?
+     */
     public update(event: EventPing): void {
+        console.log(`%c"${event.label}-Event" was triggered (${event.object.label}).`, `color: green`, event);
         if ('check' === event.label) {
-            console.log(`%c"${event.label}-Event" was triggered.`, `color: green`);
+            if (!event.object.status) {
+                this.$todosdone.splice(this.$todosdone.indexOf(event.object), 1);
+                this.$todos.push(event.object);
+            } else {
+                this.$todos.splice(this.$todos.indexOf(event.object), 1);
+                this.$todosdone.push(event.object);
+            }
+        }
+        if ('delete' === event.label) {
+            if (event.object.status) {
+                this.$todosdone.splice(this.$todosdone.indexOf(event.object), 1);
+            } else {
+                this.$todos.splice(this.$todos.indexOf(event.object), 1);
+            }
+        }
+        if ('label' === event.label) {
+            console.log('label-event on blur');
+            /*
+            if (!event.object.status) {
+                this.$todosdone.splice(this.$todosdone.indexOf(event.object), 1);
+                this.$todos.push(event.object);
+            } else {
+                this.$todos.splice(this.$todos.indexOf(event.object), 1);
+                this.$todosdone.push(event.object);
+            }
+            */
         }
     }
 }

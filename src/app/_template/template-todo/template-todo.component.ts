@@ -10,10 +10,10 @@ import {EventPing} from '../../_interface/eventping';
 export class TemplateTodoComponent implements OnInit {
 
     /*
-    "Input" to direct changes to child component
+    "Input" to direct changes from parent to child component
     "Output" to direct changes to parent component
     */
-    @Input() toDo$: ToDo;   // assign variable, if component gets new object (no use in constructor anymore)
+    @Input() toDo$: ToDo;   // property; value comes form parent, component gets new object.
     @Output() ping: EventEmitter<any> = new EventEmitter<any>();
 
     constructor() {
@@ -29,15 +29,25 @@ export class TemplateTodoComponent implements OnInit {
             object: this.toDo$,
         };
         this.ping.emit(eventObject);        // ping (emitter) emits event (eventObject)
-        console.log(this.toDo$.status);
+        console.log('Ping event emitter was emitted: ' + this.toDo$.status);
     }
 
     public changeLabel(event?: any): void {
-        console.log(this.toDo$.label);
+        const eventObject: EventPing = {
+            label: 'label',
+            object: this.toDo$,
+        };
+        this.ping.emit(eventObject);        // ping (emitter) emits event (eventObject)
+        console.log('Changed Label on blur: ' + this.toDo$.label);
     }
 
     public deleteToDo(event?: any): void {
-        console.log(this.toDo$.id);
+        const eventObject: EventPing = {
+            label: 'delete',
+            object: this.toDo$,
+        };
+        this.ping.emit(eventObject);        // ping (emitter) emits event (eventObject)
+        console.log('Some deleting happened. Id: ' + this.toDo$.id);
     }
 
 }

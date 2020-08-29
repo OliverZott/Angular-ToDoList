@@ -4,4 +4,3 @@ export interface ToDo {
   status: boolean;
   position?: number;
 }
-

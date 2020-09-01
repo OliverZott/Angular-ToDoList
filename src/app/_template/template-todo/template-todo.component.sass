@@ -11,7 +11,7 @@
   align-items: stretch
   .todo-content
     width: 100%
-    //height: 100%
+    // height: 100%  // not working with handle correctly
     display: flex
     flex-flow: row
     justify-content: flex-start
@@ -55,6 +55,7 @@
         outline: none
 
     .delete
+      height: 100%
       background-color: $red
       color: $white
       font-family: $font2

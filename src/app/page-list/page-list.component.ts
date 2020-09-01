@@ -37,6 +37,12 @@ export class PageListComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    public create(event: ToDo): void {
+        event.position = this.$todos.length + 1;
+        this.$todos.push(event);
+        console.log('created xi');
+    }
+
     /*
     After pushing  object to other array -> when / how / why is template rendered new?
      */
@@ -58,17 +64,23 @@ export class PageListComponent implements OnInit {
                 this.$todos.splice(this.$todos.indexOf(event.object), 1);
             }
         }
+        // Actually not necessary, cause _todo instance gets label value from ngModel
         if ('label' === event.label) {
-            console.log('label-event on blur');
-            /*
-            if (!event.object.status) {
-                this.$todosdone.splice(this.$todosdone.indexOf(event.object), 1);
-                this.$todos.push(event.object);
+            if (event.object.status) {
+                this.$todosdone.forEach((todo: ToDo) => {
+                    if (todo.id === event.object.id) {
+                        todo.label = event.object.label;
+                    }
+                });
             } else {
-                this.$todos.splice(this.$todos.indexOf(event.object), 1);
-                this.$todosdone.push(event.object);
+                this.$todos.forEach((todo: ToDo) => {
+                    if (todo.id === event.object.id) {
+                        todo.label = event.object.label;
+                    }
+                });
             }
-            */
         }
+        console.log(this.$todos);
+        console.log(this.$todosdone);
     }
 }

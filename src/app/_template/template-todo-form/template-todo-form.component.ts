@@ -9,10 +9,23 @@ import {ToDo} from '../../_interface/todo';
 export class TemplateTodoFormComponent  implements OnInit {
 
     @Output() ping: EventEmitter<ToDo> = new EventEmitter<ToDo>();
-
     public toDo$: ToDo;
 
     constructor() {
+    }
+
+    ngOnInit(): void {
+        this.resetForm();
+    }
+
+    public createToDo($event: any): void {
+        console.log(this.toDo$);
+        this.ping.emit(this.toDo$);
+        this.resetForm();
+        console.log('emitted xi');
+    }
+
+    private  resetForm(): void {
         this.toDo$ = {
             id: undefined,
             label: undefined,
@@ -20,14 +33,4 @@ export class TemplateTodoFormComponent  implements OnInit {
             position: undefined,
         };
     }
-
-    ngOnInit(): void {
-    }
-
-    public createToDo($event: any): void {
-        console.log(this.toDo$);
-        this.ping.emit(this.toDo$);
-        console.log('emitted xi');
-    }
-
 }

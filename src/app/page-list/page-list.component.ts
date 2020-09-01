@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {ToDo} from '../_interface/todo';
 import {EventPing} from '../_interface/eventping';
 
+/**
+ * ToDo:
+ *  - Correct Order for objects?
+ *  - How generate IDs ?
+ */
 @Component({
   selector: 'app-page-list',
   templateUrl: './page-list.component.html',
@@ -40,7 +45,6 @@ export class PageListComponent implements OnInit {
     public create(event: ToDo): void {
         event.position = this.$todos.length + 1;
         this.$todos.push(event);
-        console.log('created xi');
     }
 
     /*

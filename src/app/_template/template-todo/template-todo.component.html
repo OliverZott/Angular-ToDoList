@@ -8,7 +8,9 @@
       <img *ngIf="toDo$.status" (click)="changeCheck($event)" src="./assets/svg/checkbox-done.svg" alt="image missing">
     </div>
     <div class="todo-content-title">
-      <input type="text"  placeholder="Name of the ToDo" [(ngModel)]="toDo$.label" (blur)="changeLabel($event)">
+        <label>
+            <input type="text"  placeholder="Name of the ToDo" [(ngModel)]="toDo$.label" (blur)="changeLabel($event)">
+        </label>
     </div>
     <div class="delete" (click)="deleteToDo($event)">
       <span>Delete</span>

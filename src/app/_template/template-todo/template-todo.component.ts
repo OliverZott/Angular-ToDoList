@@ -32,22 +32,24 @@ export class TemplateTodoComponent implements OnInit {
         console.log('Ping event emitter was emitted: ' + this.toDo$.status);
     }
 
-    public changeLabel(event?: any): void {
-        const eventObject: EventPing = {
-            label: 'label',
-            object: this.toDo$,
-        };
-        this.ping.emit(eventObject);        // ping (emitter) emits event (eventObject)
-        console.log('Changed Label on blur: ' + this.toDo$.label);
-    }
-
     public deleteToDo(event?: any): void {
         const eventObject: EventPing = {
             label: 'delete',
             object: this.toDo$,
         };
-        this.ping.emit(eventObject);        // ping (emitter) emits event (eventObject)
+        this.ping.emit(eventObject);
         console.log('Some deleting happened. Id: ' + this.toDo$.id);
     }
 
+    /*
+     Actually not necessary, cause _todo instance get label value anyways
+     */
+    public changeLabel(event?: any): void {
+        const eventObject: EventPing = {
+            label: 'label',
+            object: this.toDo$,
+        };
+        this.ping.emit(eventObject);
+        console.log('Changed Label on blur: ' + this.toDo$.label);
+    }
 }

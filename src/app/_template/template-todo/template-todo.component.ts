@@ -29,7 +29,6 @@ export class TemplateTodoComponent implements OnInit {
             object: this.toDo$,
         };
         this.ping.emit(eventObject);        // ping (emitter) emits event (eventObject)
-        console.log('Ping event emitter was emitted: ' + this.toDo$.status);
     }
 
     public deleteToDo(event?: any): void {
@@ -38,7 +37,6 @@ export class TemplateTodoComponent implements OnInit {
             object: this.toDo$,
         };
         this.ping.emit(eventObject);
-        console.log('Some deleting happened. Id: ' + this.toDo$.id);
     }
 
     /*
@@ -50,6 +48,5 @@ export class TemplateTodoComponent implements OnInit {
             object: this.toDo$,
         };
         this.ping.emit(eventObject);
-        console.log('Changed Label on blur: ' + this.toDo$.label);
     }
 }

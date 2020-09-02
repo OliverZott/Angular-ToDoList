@@ -19,12 +19,13 @@ export class TemplateTodoFormComponent  implements OnInit {
     }
 
     public createToDo($event: any): void {
-        console.log(this.toDo$);
         this.ping.emit(this.toDo$);
         this.resetForm();
-        console.log('emitted xi');
     }
 
+    /*
+    To clear form after creation of an object
+     */
     private  resetForm(): void {
         this.toDo$ = {
             id: undefined,

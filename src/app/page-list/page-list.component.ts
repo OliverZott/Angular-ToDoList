@@ -22,20 +22,7 @@ export class PageListComponent implements OnInit {
     constructor() {
         this.toDoShow = true;
         this.toDoDoneShow = true;
-        this.$todos = [
-            {
-                id: 0,
-                label: 'Task1',
-                position: 1,
-                status: false,
-            },
-            {
-                id: 1,
-                label: 'Task2',
-                position: 2,
-                status: false,
-            }
-        ];
+        this.$todos = [];
         this.$todosdone = [];
     }
 

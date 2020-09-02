@@ -72,15 +72,16 @@ https://www.youtube.com/watch?v=mN1QgTvPXrI
 ## Component interaction
 https://www.youtube.com/watch?v=nFjVYwCJdUU
 
-- **eventping**  will be needed
+- *eventping*  will be needed
 - *Structural Directives*: `*ngFor`
-- *Binding* to child component: 
+- *Binding* 
+- Input / Output
+- Emitter
 
-### Input / Output
-
-### Emitter
-
-
+## Backend Simulation
+- db.json
+- `npm install -g json-server` (in server directory???)
+- `json-server --watch db.json` (in server directory!)
 
 
     

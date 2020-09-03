@@ -32,4 +32,8 @@ export class DataService {
     public deleteToDo(todo: ToDo): Observable<any> {
         return this.httpClient.delete<ToDo>(`${this.serverUrl}/todos/${todo.id}`, this.httpOptions);
     }
+
+    public putToDo(todo: ToDo): Observable<ToDo> {
+        return this.httpClient.put<ToDo>(`${this.serverUrl}/todos/${todo.id}`, todo, this.httpOptions);
+    }
 }

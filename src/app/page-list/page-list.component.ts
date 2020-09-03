@@ -42,7 +42,13 @@ export class PageListComponent implements OnInit {
         this.$todos = [];
         this.$todosdone = [];
         this.dataService.getToDo().subscribe((data: ToDo[]) => {
-            this.$todos = data;
+            data.forEach((todo: ToDo) => {
+                if (todo.status === true) {
+                    this.$todosdone.push(todo);
+                } else {
+                    this.$todos.push(todo);
+                }
+            });
         }, error => {
             console.log(`%cERROR: ${error.message}`, `color: red; font-size: 12px;`);
         });
@@ -57,13 +63,14 @@ export class PageListComponent implements OnInit {
             console.log(`%cERROR: ${error.measure}`, `color: red`);
         });
     }
-    
+
     /*
     After pushing  object to other array -> when / how / why is template rendered new?
      */
     public update(event: EventPing): void {
         console.log(`%c"${event.label}-Event" was triggered (${event.object.label}).`, `color: green`, event);
         if ('check' === event.label) {
+            console.log('Some checking happend on page-list');
             if (!event.object.status) {
                 this.$todosdone.splice(this.$todosdone.indexOf(event.object), 1);
                 this.$todos.push(event.object);
@@ -73,6 +80,7 @@ export class PageListComponent implements OnInit {
             }
         }
         if ('delete' === event.label) {
+            console.log('Some deleting happend on page-list');
             if (event.object.status) {
                 this.$todosdone.splice(this.$todosdone.indexOf(event.object), 1);
             } else {

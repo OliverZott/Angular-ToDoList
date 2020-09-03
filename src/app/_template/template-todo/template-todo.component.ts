@@ -27,11 +27,15 @@ export class TemplateTodoComponent implements OnInit {
 
     public changeCheck(event?: any): void {
         this.toDo$.status = !this.toDo$.status;
-        const eventObject: EventPing = {
-            label: 'check',
-            object: this.toDo$,
-        };
-        this.ping.emit(eventObject);        // ping (emitter) emits event (eventObject)
+        this.dataService.putToDo(this.toDo$).subscribe((data: ToDo) => {
+            const eventObject: EventPing = {
+                label: 'check',
+                object: this.toDo$,
+            };
+            this.ping.emit(eventObject);
+        }, error => {
+            console.log(`%cERROR: ${error.message}`, `color: red`);
+        });
     }
 
     public deleteToDo(event?: any): void {

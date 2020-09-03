@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ToDo} from '../../_interface/todo';
+import { EventPing} from '../../_interface/eventping';
 
 @Component({
     selector: 'app-template-todo-form',
@@ -19,12 +20,12 @@ export class TemplateTodoFormComponent  implements OnInit {
     }
 
     public createToDo($event: any): void {
-        this.ping.emit(this.toDo$);
+        this.ping.emit(this.toDo$);     // sends Object with label from input-form
         this.resetForm();
     }
 
     /*
-    To clear form after creation of an object
+    To clear form after creation of an object and also initial instantiation
      */
     private  resetForm(): void {
         this.toDo$ = {

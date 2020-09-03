@@ -79,10 +79,14 @@ https://www.youtube.com/watch?v=nFjVYwCJdUU
 - Emitter
 
 ## Backend Simulation
-- db.json
+- `db.json` file
 - `npm install -g json-server` (in server directory???)
-- `json-server --watch db.json` (in server directory!)
+- Start server: `json-server --watch db.json` (in server directory!)
+- Get-Request on `http://localhost:3000/todos`
 
+
+- https://angular.io/guide/http
+- 
 
     
 <br>    

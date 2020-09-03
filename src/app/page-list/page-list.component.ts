@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {ToDo} from '../_interface/todo';
-import {EventPing} from '../_interface/eventping';
+import { ToDo } from '../_interface/todo';
+import { EventPing } from '../_interface/eventping';
+import { DataService } from '../_service/data.service';
+import { Subscription } from 'rxjs';
 
+// noinspection SpellCheckingInspection
 /**
  * ToDo:
  *  - Correct Order for objects?
  *  - How generate IDs ?
+ *  - object status should be changed in database! to seperate todo and tododone!
  */
 @Component({
   selector: 'app-page-list',
@@ -19,19 +23,45 @@ export class PageListComponent implements OnInit {
     public $todos: ToDo[];
     public $todosdone: ToDo[];
 
-    constructor() {
-        this.toDoShow = true;
-        this.toDoDoneShow = true;
-        this.$todos = [];
-        this.$todosdone = [];
+    constructor(
+        public dataService: DataService,
+    ) {
     }
 
     ngOnInit(): void {
+        this.toDoShow = true;
+        this.toDoDoneShow = true;
+        this.loadData();
+    }
+
+
+    /*
+    loadData / create / delete ...handle database requests
+     */
+    private loadData(): void {
+        this.$todos = [];
+        this.$todosdone = [];
+        this.dataService.getToDo().subscribe((data: ToDo[]) => {
+            this.$todos = data;
+        }, error => {
+            console.log(`%cERROR: ${error.message}`, `color: red; font-size: 12px;`);
+        });
     }
 
     public create(event: ToDo): void {
         event.position = this.$todos.length + 1;
-        this.$todos.push(event);
+        this.dataService.postToDo(event).subscribe((data: ToDo) => {
+            console.log(`%c: "${data.label}" was created successfully.`, `color: blue`);
+            this.$todos.push(event);
+        }, error => {
+            console.log(`%cERROR: ${error.measure}`, `color: red`);
+        });
+    }
+
+    private delete(event: ToDo): void {
+        this.dataService.deleteToDo(event).subscribe((data: ToDo) => {
+            console.log(`%c: "${data.label}" was deleted successfully.`, `color: blue`);
+        });
     }
 
     /*
@@ -49,6 +79,7 @@ export class PageListComponent implements OnInit {
             }
         }
         if ('delete' === event.label) {
+            this.delete(event.object);
             if (event.object.status) {
                 this.$todosdone.splice(this.$todosdone.indexOf(event.object), 1);
             } else {
@@ -71,7 +102,5 @@ export class PageListComponent implements OnInit {
                 });
             }
         }
-        console.log(this.$todos);
-        console.log(this.$todosdone);
     }
 }

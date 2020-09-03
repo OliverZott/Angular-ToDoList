@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToDo } from '../../_interface/todo';
 import {EventPing} from '../../_interface/eventping';
+import { DataService } from '../../_service/data.service';
 
 @Component({
     selector: 'app-template-todo',
@@ -16,7 +17,9 @@ export class TemplateTodoComponent implements OnInit {
     @Input() toDo$: ToDo;   // property; value comes form parent, component gets new object.
     @Output() ping: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor() {
+    constructor(
+        public dataService: DataService
+    ) {
     }
 
     ngOnInit(): void {

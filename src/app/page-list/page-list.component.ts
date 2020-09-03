@@ -57,13 +57,7 @@ export class PageListComponent implements OnInit {
             console.log(`%cERROR: ${error.measure}`, `color: red`);
         });
     }
-
-    private delete(event: ToDo): void {
-        this.dataService.deleteToDo(event).subscribe((data: ToDo) => {
-            console.log(`%c: "${data.label}" was deleted successfully.`, `color: blue`);
-        });
-    }
-
+    
     /*
     After pushing  object to other array -> when / how / why is template rendered new?
      */
@@ -79,7 +73,6 @@ export class PageListComponent implements OnInit {
             }
         }
         if ('delete' === event.label) {
-            this.delete(event.object);
             if (event.object.status) {
                 this.$todosdone.splice(this.$todosdone.indexOf(event.object), 1);
             } else {

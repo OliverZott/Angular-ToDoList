@@ -35,11 +35,15 @@ export class TemplateTodoComponent implements OnInit {
     }
 
     public deleteToDo(event?: any): void {
-        const eventObject: EventPing = {
-            label: 'delete',
-            object: this.toDo$,
-        };
-        this.ping.emit(eventObject);
+        this.dataService.deleteToDo(this.toDo$).subscribe((data: ToDo) => {
+            const eventObject: EventPing = {
+                label: 'delete',
+                object: this.toDo$,
+            };
+            this.ping.emit(eventObject);
+        }, error => {
+            console.log(`%cERROR: ${error.message}`, `color: red`);
+        });
     }
 
     /*
